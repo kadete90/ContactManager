@@ -1,6 +1,7 @@
 package com.example.kadete.contactmanager;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -25,6 +27,7 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity {
 
     EditText nameTxt, phoneTxt, emailTxt, addressTxt;
+    ImageView contactImgView;
     List<Contact> Contacts = new ArrayList<Contact>();
     ListView contactListView;
 
@@ -38,6 +41,9 @@ public class MainActivity extends ActionBarActivity {
         phoneTxt = (EditText) findViewById(R.id.txtPhone);
         emailTxt = (EditText) findViewById(R.id.txtEmail);
         addressTxt = (EditText) findViewById(R.id.txtAddress);
+
+        contactImgView = (ImageView) findViewById(R.id.imgViewContactAdd);
+//        contactImgView = (ImageView) findViewById(R.id.imgGroupUser);
 
         contactListView = (ListView) findViewById(R.id.listView);
 
@@ -80,7 +86,25 @@ public class MainActivity extends ActionBarActivity {
             public void afterTextChanged(Editable editable) {
 
             }
+
         });
+        contactImgView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Contact Image"),1);
+            }
+        });
+    }
+
+    public void onActivityResult(int reqCode, int resCode, Intent data){
+        if(resCode == RESULT_OK) {
+            if(reqCode == 1){
+                contactImgView.setImageURI(data.getData());
+            }
+        }
     }
 
     private void addContact(String name, String phone, String email, String address){
