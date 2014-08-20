@@ -35,8 +35,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Large Text"
-                        android:id="@+id/textView3"
+                        android:text="My Contacts"
+                        android:id="@+id/lblMyContacts"
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center" />
 
