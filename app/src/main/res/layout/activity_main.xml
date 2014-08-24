@@ -40,11 +40,20 @@
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center" />
 
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/imgGroupUser"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/group_icon"
+                        android:layout_marginTop="10dp" />
+
                     <ListView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/listView"
                         android:layout_gravity="center_horizontal" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -60,7 +69,15 @@
                         android:text="Contact Creator"
                         android:id="@+id/lblCreatorTitle"
                         android:layout_marginTop="10dp"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center_horizontal" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/imgViewContactAdd"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/add_user_icon" />
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -69,7 +86,7 @@
                         android:ems="10"
                         android:id="@+id/txtName"
                         android:hint="Contact Name"
-                        android:layout_marginTop="15dp" />
+                        android:layout_marginTop="10dp" />
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -78,7 +95,7 @@
                         android:ems="10"
                         android:id="@+id/txtPhone"
                         android:hint="Phone Number"
-                        android:layout_marginTop="15dp" />
+                        android:layout_marginTop="10dp" />
 
                     <EditText
                         android:layout_width="match_parent"
@@ -88,7 +105,7 @@
                         android:hint="Email"
                         android:layout_gravity="center_horizontal"
                         android:inputType="textEmailAddress"
-                        android:layout_marginTop="15dp" />
+                        android:layout_marginTop="10dp" />
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -98,7 +115,7 @@
                         android:id="@+id/txtAddress"
                         android:hint="Address"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="15dp" />
+                        android:layout_marginTop="10dp" />
 
                     <Button
                         android:layout_width="200dp"
@@ -108,6 +125,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp"
                         android:enabled="false" />
+
                 </LinearLayout>
 
             </FrameLayout>
