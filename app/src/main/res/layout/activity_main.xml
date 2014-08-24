@@ -49,8 +49,8 @@
                         android:layout_marginTop="10dp" />
 
                     <ListView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/listView"
                         android:layout_gravity="center_horizontal" />
 
@@ -74,7 +74,7 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:id="@+id/imgViewContactAdd"
+                        android:id="@+id/imgContactAdd"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp"
                         android:src="@drawable/add_user_icon" />

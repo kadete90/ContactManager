@@ -91,7 +91,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_EMAIL, contact.getEmail());
         values.put(KEY_ADDRESS, contact.getAddress());
         values.put(KEY_IMG_URI, contact.getImgUri().toString());
-        return db.update(TABLE_CONTACTS, values, KEY_ID + "=?", new String[] {String.valueOf(contact.getId())});
+        int rowsAffected = db.update(TABLE_CONTACTS, values, KEY_ID + "=?", new String[] {String.valueOf(contact.getId())});
+        db.close();
+        return rowsAffected;
     }
 
     public List<Contact> getAllContacts(){
@@ -100,11 +102,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_CONTACTS, null);
         if(cursor.moveToFirst()){
             do{
-                Contact contact = new Contact(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4), Uri.parse(cursor.getString(5)));
-                contacts.add(contact);
+                contacts.add(new Contact(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4), Uri.parse(cursor.getString(5))));
             }while (cursor.moveToNext());
         }
         cursor.close();
+        db.close();
         return contacts;
     }
 }
