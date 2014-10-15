@@ -2,6 +2,8 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <intent android:action=".QuickPrefsActivity"/>
+
     <PreferenceCategory
         android:title="First Category"
         android:key="first_category">
@@ -36,6 +38,16 @@
             android:dialogTitle="Welcome Message"
             android:dialogMessage="Provide a message"
             android:defaultValue="Default welcome message" />
+
+        <MultiSelectListPreference
+            android:dialogTitle="@string/select_classes"
+            android:key="thoth_classes_selected"
+            android:title="@string/thoth_classes_title"
+            android:summary="@string/thoth_classes_summary"
+            android:entries="@array/thothClasses"
+            android:entryValues="@array/thothClasses"
+            android:defaultValue="@array/empty_array"
+            />
 
     </PreferenceCategory>
 

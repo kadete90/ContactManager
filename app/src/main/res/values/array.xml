@@ -15,4 +15,21 @@
         <item name="60000">60000</item>
         <item name="300000">300000</item>
     </string-array>
+
+    <string-array name="thothClasses">
+        <item name="PI">PI_1314i</item>
+        <item name="AVE">AVE_1314v</item>
+        <item name="MPD">MPD_1314i</item>
+        <item name="PDM">PDM_1415v</item>
+        <item name="PC">PC_1314v</item>
+    </string-array>
+
+    <!--<string-array name="thothClassesValues">-->
+        <!--<item name="PI">PI_1314i</item>-->
+        <!--<item name="AVE">AVE_1314v</item>-->
+        <!--<item name="MPD">MPD_1314i</item>-->
+        <!--<item name="PDM">PDM_1415v</item>-->
+        <!--<item name="PC">PC_1314v</item>-->
+    <!--</string-array>-->
+
 </resources>

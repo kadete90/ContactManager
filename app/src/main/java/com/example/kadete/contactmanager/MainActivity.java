@@ -1,6 +1,7 @@
 package com.example.kadete.contactmanager;
 
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -8,8 +9,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -120,7 +123,8 @@ public class MainActivity extends ActionBarActivity {
                   Intent intent = new Intent();
                   intent.setType("image/*");
                   intent.setAction(Intent.ACTION_GET_CONTENT);
-                  startActivityForResult(Intent.createChooser(intent, "Select Contact Image"), 1);
+                  // startActivityForResult(Intent.createChooser(intent, "Select Contact Image"),1); // own redefinition of the menu chooser
+                  startActivityForResult(intent, 1);//default menu chooser
               }
           });
 //
@@ -140,6 +144,31 @@ public class MainActivity extends ActionBarActivity {
         if(dbHandler.getContactCount() != 0)
             Contacts.addAll(dbHandler.getAllContacts());
         populateList();
+        Log.d("DEBUG","onCreate Called");
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        Log.d("DEBUG","onStart Called");
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        Log.d("DEBUG","onStop Called");
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Log.d("DEBUG","onPause Called");
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Log.d("DEBUG","onResume Called");
     }
 
     private boolean contactsExists(Contact contact){
@@ -224,12 +253,13 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent i = new Intent(MainActivity.this, QuickPrefsActivity.class);
+            startActivity(i);
             return true;
         }
         return super.onOptionsItemSelected(item);

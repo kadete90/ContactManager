@@ -4,11 +4,13 @@ package com.example.kadete.contactmanager;
  * Created by Kadete on 08/10/2014.
  */
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -31,6 +33,14 @@ public class QuickPrefsActivity extends PreferenceActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    @Override
+    protected void onStart(){
+        super.onStart();
+        ActionBar actionbar = this.getActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
