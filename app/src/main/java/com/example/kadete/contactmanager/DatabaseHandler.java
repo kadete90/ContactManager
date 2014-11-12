@@ -17,13 +17,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "contactManager",
-    TABLE_CONTACTS = "contacts",
-    KEY_ID = "id",
-    KEY_NAME = "name",
-    KEY_PHONE = "phone",
-    KEY_EMAIL = "email",
-    KEY_ADDRESS = "address",
-    KEY_IMG_URI = "imgUri";
+                                TABLE_CONTACTS = "contacts",
+                                KEY_ID = "id",
+                                KEY_NAME = "name",
+                                KEY_PHONE = "phone",
+                                KEY_EMAIL = "email",
+                                KEY_ADDRESS = "address",
+                                KEY_IMG_URI = "imgUri";
 
 
     public DatabaseHandler(Context context) {

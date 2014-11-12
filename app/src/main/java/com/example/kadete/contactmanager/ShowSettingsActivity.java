@@ -35,7 +35,7 @@ public class ShowSettingsActivity extends Activity {
         Set<String> selections = sharedPrefs.getStringSet("thoth_classes_selected", null);
         builder.append("\n" + selections);
 
-        Toast.makeText(getBaseContext(), selections.iterator().next(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), selections.toString(), Toast.LENGTH_LONG).show();
 
         TextView settingsTextView = (TextView) findViewById(R.id.settings_text_view);
         settingsTextView.setText(builder.toString());
